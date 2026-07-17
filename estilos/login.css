@@ -1,0 +1,444 @@
+@import url('theme.css');
+
+html, body{
+    height: 100%;
+}
+
+body{
+    background:
+        linear-gradient(145deg, #080D10 0%, #0F171C 52%, #151E24 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.pantalla{
+    width: 100%;
+    max-width: 980px;
+    min-height: 600px;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.panelMarca{
+    position: relative;
+    background:
+        linear-gradient(155deg, rgba(11, 18, 22, 0.9), rgba(20, 36, 43, 0.85)),
+        url('../view/img/login_background.jpg') center/cover no-repeat;
+    color: #ffffff;
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.panelMarca::before,
+.panelMarca::after{
+    display: none;
+}
+
+.marca{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: .3px;
+    z-index: 1;
+}
+
+.marca .escudo{
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(142,215,207,.12);
+    border: 1px solid rgba(142,215,207,.34);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.panelMarca .mensaje{
+    z-index: 1;
+    max-width: 360px;
+}
+
+.panelMarca .mensaje h1{
+    font-family: var(--font-display);
+    font-size: 34px;
+    line-height: 1.25;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.panelMarca .mensaje p{
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(248,248,252,.82);
+}
+
+.panelMarca .pie{
+    z-index: 1;
+    font-size: 13px;
+    color: rgba(248,248,252,.65);
+}
+
+.panelFormulario{
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #111827;
+}
+
+.panelFormulario h2{
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.panelFormulario .subtitulo{
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 32px;
+}
+
+input[type="text"],
+input[type="password"]{
+    width: 100%;
+    padding: 13px 14px;
+    border: 1.5px solid #374151;
+    border-radius: var(--radius-sm);
+    font-size: 14.5px;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    background: #1f2937;
+    color: #ffffff;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder{
+    color: #9ca3af;
+}
+
+.campo{
+    margin-bottom: 18px;
+}
+
+.campo label{
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #f3f4f6;
+    margin-bottom: 6px;
+}
+
+.campoConIcono{
+    position: relative;
+}
+
+.campoConIcono .icono{
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    color: #2dd4bf;
+    opacity: .85;
+    display: flex;
+    pointer-events: none;
+}
+
+.campoConIcono .icono svg{
+    width: 17px;
+    height: 17px;
+    display: block;
+}
+
+.campoConIcono input{
+    position: relative;
+    z-index: 1;
+    padding-left: 40px;
+}
+
+.togglePassword{
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    color: #9ca3af;
+    padding: 4px 6px;
+    z-index: 2;
+}
+
+.campoConIcono:focus-within .icono{
+    color: #2dd4bf;
+    opacity: 1;
+}
+
+#password{
+    padding-right: 64px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus{
+    border-color: #2dd4bf;
+    box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.14);
+    background: #1f2937;
+}
+
+input.inputError{
+    border-color: #ef4444;
+}
+
+.bloqueCaptcha{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #1f2937;
+    border: 1.5px solid #374151;
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    margin-bottom: 18px;
+}
+
+.captchaCodigo{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 21px;
+    background:
+        radial-gradient(circle at 18% 25%, rgba(255,255,255,.18) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 74% 62%, rgba(255,255,255,.13) 0 1px, transparent 1.5px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.045) 0 1px, transparent 1px 7px),
+        repeating-linear-gradient(115deg, rgba(162,232,224,.12) 0 2px, transparent 2px 10px),
+        linear-gradient(135deg, #0D1820, #17313A);
+    background-size: 32px 32px, 38px 38px, auto, auto, auto;
+    border: 1px solid rgba(162,232,224,.34);
+    border-radius: 8px;
+    padding: 9px 15px;
+    min-width: 168px;
+    flex: 0 0 168px;
+    min-height: 46px;
+    user-select: none;
+    overflow: hidden;
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.04),
+        inset 0 -18px 32px rgba(0,0,0,.14);
+}
+
+.captchaCodigo::before,
+.captchaCodigo::after{
+    content: "";
+    position: absolute;
+    left: -12%;
+    width: 124%;
+    height: 2px;
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.captchaCodigo::before{
+    top: 35%;
+    background: linear-gradient(90deg, transparent, rgba(242,201,76,.72), rgba(103,232,215,.38), transparent);
+    transform: rotate(-7deg);
+}
+
+.captchaCodigo::after{
+    top: 63%;
+    background: linear-gradient(90deg, transparent, rgba(251,207,232,.56), rgba(221,214,254,.48), transparent);
+    transform: rotate(5deg);
+}
+
+.captchaLetra{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 19px;
+    line-height: 1;
+    letter-spacing: 0;
+    text-shadow:
+        0 1px 0 rgba(0,0,0,.74),
+        0 0 7px rgba(255,255,255,.16);
+}
+
+.captchaCodigo.cargando{
+    color: var(--color-text-muted);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: normal;
+}
+
+.bloqueCaptcha input{
+    flex: 1;
+    letter-spacing: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.btnRefrescarCaptcha{
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #2dd4bf;
+    transition: transform var(--transition), background var(--transition), color var(--transition);
+    flex-shrink: 0;
+}
+
+.btnRefrescarCaptcha:hover{
+    background: var(--color-button-primary);
+    color: var(--color-button-text);
+    transform: rotate(90deg);
+}
+
+
+.btnIngresar{
+    width: 100%;
+    padding: 14px;
+    background: var(--color-button-primary);
+    background-image: linear-gradient(135deg, #20B8AD, var(--color-button-primary));
+    color: var(--color-button-text);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+    box-shadow: 0 10px 24px var(--color-button-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.btnIngresar:hover:not(:disabled){
+    transform: translateY(-2px);
+    background-image: linear-gradient(135deg, var(--color-button-hover), #9AF2E6);
+    box-shadow: 0 14px 30px rgba(56,203,191,.34);
+}
+
+.btnIngresar:disabled{
+    opacity: .7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.spinner{
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2.5px solid rgba(255,255,255,.4);
+    border-top-color: white;
+    animation: girar .7s linear infinite;
+    display: none;
+}
+
+.btnIngresar.cargando .spinner{ display: inline-block; }
+.btnIngresar.cargando .textoBoton{ opacity: .85; }
+
+#mensaje{
+    margin-top: 16px;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 600;
+    min-height: 18px;
+}
+
+#mensaje.error{ color: var(--color-danger-text); }
+#mensaje.exito{ color: var(--color-success-text); }
+
+@media (max-width: 860px){
+    body{
+        align-items: flex-start;
+        padding: 18px;
+    }
+
+    .pantalla{
+        max-width: 560px;
+        min-height: auto;
+        grid-template-columns: 1fr;
+    }
+
+    .panelMarca,
+    .panelFormulario{
+        padding: 34px 28px;
+    }
+
+    .panelMarca{
+        gap: 34px;
+    }
+
+    .panelMarca .mensaje{
+        max-width: none;
+    }
+
+    .panelMarca .mensaje h1{
+        font-size: 27px;
+    }
+}
+
+@media (max-width: 520px){
+    body{
+        padding: 12px;
+    }
+
+    .panelMarca,
+    .panelFormulario{
+        padding: 28px 20px;
+    }
+
+    .panelFormulario h2{
+        font-size: 23px;
+    }
+
+    .bloqueCaptcha{
+        display: grid;
+        grid-template-columns: 1fr 42px;
+        gap: 10px;
+    }
+
+    .captchaCodigo{
+        grid-column: 1 / -1;
+        width: 100%;
+        min-width: 0;
+        flex-basis: auto;
+    }
+
+    .bloqueCaptcha input{
+        min-width: 0;
+    }
+
+    .btnRefrescarCaptcha{
+        width: 42px;
+        height: 42px;
+    }
+}

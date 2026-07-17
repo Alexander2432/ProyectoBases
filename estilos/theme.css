@@ -1,0 +1,116 @@
+/* ============================================================
+   theme.css - Tokens de diseno compartidos (MazaJardel Panel)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+    --color-primary:        #0f766e;
+    --color-primary-dark:   #0f172a;
+    --color-primary-light:  #2dd4bf;
+    --color-accent:         #f59e0b;
+    --color-accent-dark:    #d97706;
+    --color-button-primary: #0f766e;
+    --color-button-hover:   #0d9488;
+    --color-button-text:    #ffffff;
+    --color-button-shadow:  rgba(15, 118, 110, 0.15);
+    --color-danger-strong:  #ef4444;
+    --color-danger-hover:   #f87171;
+
+    --color-bg:             #0b0f17;
+    --color-bg-soft:        #0f172a;
+    --color-surface:        #111827;
+    --color-border:         #1f2937;
+
+    --color-text:           #f3f4f6;
+    --color-text-muted:     #9ca3af;
+    --color-text-inverse:   #1f2937;
+
+    --color-success-bg:     #064e3b;
+    --color-success-text:   #34d399;
+    --color-success-border: #047857;
+
+    --color-danger-bg:      #451a03;
+    --color-danger-text:    #fca5a5;
+    --color-danger-border:  #991b1b;
+
+    --color-info-bg:        #1e3a8a;
+    --color-info-text:      #93c5fd;
+    --color-warning-bg:     #78350f;
+    --color-warning-text:   #fcd34d;
+
+    --font-display: 'Inter', 'Segoe UI', sans-serif;
+    --font-body: 'Inter', 'Segoe UI', sans-serif;
+
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    --transition: .15s ease-in-out;
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--font-body);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+}
+
+a{ color: inherit; }
+
+button, input, select, textarea{
+    font-family: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+    outline: 3px solid rgba(242, 201, 76, .62);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+.mensajeExito,
+.mensajeError{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.mensajeExito{
+    background: var(--color-success-bg);
+    color: var(--color-success-text);
+    border: 1px solid var(--color-success-border);
+}
+
+.mensajeError{
+    background: var(--color-danger-bg);
+    color: var(--color-danger-text);
+    border: 1px solid var(--color-danger-border);
+}
