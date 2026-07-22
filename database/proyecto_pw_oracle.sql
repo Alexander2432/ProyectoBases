@@ -379,7 +379,7 @@ INSERT INTO ROLES (idRol, nombre, descripcion) VALUES (3, 'Cliente', 'Puede comp
 
 -- Contraseña encriptada para el administrador es 'admin' usando password_hash en PHP (Actualizada).
 INSERT INTO USUARIOS (idUsuario, usuario, password, nombres, apellidos, correo, telefono, cedula, estado, idRol)
-VALUES (2, 'admin', '$2y$10$i5wJ20d4ZE.v2BsaUVyhTOSnErm8QCckgh0zDoK6Yydh.ugTohne2', 'Alex', 'Administrador', 'admin@sistema.com', '0999999999', '0102030400', 'Activo', 1);
+VALUES (2, 'admin', '$2y$10$i5wJ20d4ZE.v2BsaUVyhTOSnErm8QCckgh0zDoK6Yydh.ugTohne2', 'Alex', 'Administrador', 'admin@sistema.com', '0999999999', '1700000000', 'Activo', 1);
 
 INSERT INTO CATEGORIAS_IVA (idCategoriaIva, nombre, porcentaje) VALUES (1, 'IVA 15%', 15.00);
 INSERT INTO CATEGORIAS_IVA (idCategoriaIva, nombre, porcentaje) VALUES (2, 'IVA 0%', 0.00);

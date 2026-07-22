@@ -10,7 +10,6 @@ if (campoCedula) {
 if (formulario) {
     formulario.addEventListener("submit", function(e) {
         const usuario = document.getElementById("usuario").value.trim();
-        const cedula = document.getElementById("cedula").value.trim();
         const password = document.getElementById("password").value.trim();
         const confirmar = document.getElementById("confirmar").value.trim();
         const mensaje = document.getElementById("mensaje");
@@ -20,20 +19,6 @@ if (formulario) {
 
         if (usuario === "") {
             mensaje.textContent = "Ingrese el usuario";
-            mensaje.classList.add("mensajeErrorInline");
-            e.preventDefault();
-            return;
-        }
-
-        if (!/^[0-9]{10}$/.test(cedula)) {
-            mensaje.textContent = "La cedula debe tener exactamente 10 digitos";
-            mensaje.classList.add("mensajeErrorInline");
-            e.preventDefault();
-            return;
-        }
-
-        if (!cedulaEcuatorianaValida(cedula)) {
-            mensaje.textContent = "Ingrese una cedula ecuatoriana valida";
             mensaje.classList.add("mensajeErrorInline");
             e.preventDefault();
             return;

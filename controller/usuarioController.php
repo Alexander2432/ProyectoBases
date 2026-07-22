@@ -77,24 +77,25 @@ if(isset($_POST["accion"])){
         $telefono=$_POST["telefono"];
         $cedula=trim($_POST["cedula"] ?? "");
 
-        if(!cedulaEcuatorianaValida($cedula)){
-            header("Location: " . urlLimpia("view/usuarios/create.php?mensaje=cedula"));
-            exit();
-        }
-
         $idRol = (int) ($_POST["idRol"] ?? ID_ROL_POR_DEFECTO);
         if($idRol === ID_ROL_ADMINISTRADOR || $idRol <= 0){
             $idRol = ID_ROL_POR_DEFECTO;
         }
 
-        $resultado=$modelo->guardar(
-            $usuario, $password, $nombres, $apellidos, $correo, $telefono, $cedula, $idRol
-        );
+        try {
+            $resultado = $modelo->guardar(
+                $usuario, $password, $nombres, $apellidos, $correo, $telefono, $cedula, $idRol
+            );
 
-        if($resultado){
-            header("Location: " . urlLimpia("view/usuarios/create.php?mensaje=ok"));
-        }else{
-            header("Location: " . urlLimpia("view/usuarios/create.php?mensaje=existe"));
+            if($resultado === "OK" || $resultado === true){
+                header("Location: " . urlLimpia("view/usuarios/create.php?mensaje=ok"));
+            } else if ($resultado === "ERROR_DUPLICADO") {
+                header("Location: " . urlLimpia("view/usuarios/create.php?mensaje=existe"));
+            } else {
+                header("Location: " . urlLimpia("view/usuarios/create.php?mensaje=" . urlencode((string)$resultado)));
+            }
+        } catch (Exception $e) {
+            header("Location: " . urlLimpia("view/usuarios/create.php?mensaje=" . urlencode($e->getMessage())));
         }
         exit();
     }

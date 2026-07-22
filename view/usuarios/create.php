@@ -41,20 +41,15 @@ $roles = $rolModelo->listarSinAdministrador();
 if(isset($_GET["mensaje"])){
     if($_GET["mensaje"]=="ok"){
         echo '<div class="mensajeExito">Usuario creado correctamente.</div>';
-    }
-    if($_GET["mensaje"]=="existe"){
+    } else if($_GET["mensaje"]=="existe"){
         echo '<div class="mensajeError">El usuario o la c&eacute;dula ya existe.</div>';
-    }
-    if($_GET["mensaje"]=="cedula"){
-        echo '<div class="mensajeError">La c&eacute;dula ingresada no es v&aacute;lida.</div>';
-    }
-    if($_GET["mensaje"]=="password_invalida"){
-        echo '<div class="mensajeError">La contrase&ntilde;a debe tener al menos 8 caracteres, una letra may&uacute;scula y un caracter especial.</div>';
+    } else {
+        echo '<div class="mensajeError">' . htmlspecialchars(urldecode($_GET["mensaje"])) . '</div>';
     }
 }
 ?>
 
-<form action="<?php echo urlLimpia("controller/usuarioController.php"); ?>" method="POST" id="formUsuario" class="formulario formularioPanel">
+<form action="<?php echo urlLimpia("controller/usuarioController.php"); ?>" method="POST" id="formUsuario" class="formulario formularioPanel" novalidate>
     <input type="hidden" name="accion" value="guardar">
 
     <div class="gridFormulario">
@@ -68,11 +63,11 @@ if(isset($_GET["mensaje"])){
         </div>
         <div>
             <label>Correo electr&oacute;nico</label>
-            <input type="email" name="correo" id="correo" placeholder="correo@dominio.com" required>
+            <input type="text" name="correo" id="correo" placeholder="correo@dominio.com" required>
         </div>
         <div>
             <label for="cedula">C&eacute;dula</label>
-            <input type="text" name="cedula" id="cedula" maxlength="10" minlength="10" inputmode="numeric" autocomplete="off" pattern="[0-9]{10}" placeholder="Ej. 0102030400" title="Ingrese una c&eacute;dula ecuatoriana de 10 d&iacute;gitos" required>
+            <input type="text" name="cedula" id="cedula" placeholder="Ej. 0102030400" required>
             <small class="ayudaCampo">Debe ser una c&eacute;dula ecuatoriana v&aacute;lida de 10 d&iacute;gitos.</small>
         </div>
         <div>

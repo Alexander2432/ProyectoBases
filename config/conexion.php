@@ -5,8 +5,8 @@ class Conexion
 private $host = "localhost"; // O el host de tu base de datos si es diferente
 private $puerto = "1521";    // El puerto configurado
 private $servicio = "xe";    // Tu SID o Service Name (usualmente 'xe' o 'ORCL')
-private $usuario = "system";  // El usuario con el que te conectaste (ej: system)
-private $password = "NuevaClave123";   // La clave con la que ingresaste
+private $usuario = "proyecto_user";  // El usuario con el que te conectaste
+private $password = "12345";   // La clave del nuevo usuario creado
 
     public function conectar()
     {

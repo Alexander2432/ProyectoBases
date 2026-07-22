@@ -141,10 +141,10 @@ class Usuario {
         $stmt->bindParam(':telefono', $telefono, PDO::PARAM_STR);
         $stmt->bindParam(':cedula', $cedula, PDO::PARAM_STR);
         $stmt->bindParam(':idRol', $idRol, PDO::PARAM_INT);
-        $stmt->bindParam(':resultado', $resultado, PDO::PARAM_STR, 100);
+        $stmt->bindParam(':resultado', $resultado, PDO::PARAM_STR, 500);
         $stmt->execute();
 
-        return ($resultado === 'OK');
+        return $resultado;
     }
 
     public function listar() {
