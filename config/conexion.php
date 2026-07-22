@@ -23,8 +23,10 @@ private $password = "NuevaClave123";   // La clave con la que ingresaste
             // Habilitamos el lanzamiento de excepciones para errores
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
-            // Forzar formato de números a punto decimal para evitar ORA-01722 en configuraciones regionales en español
+            // Forzar formato de números a punto decimal y formato de fechas estándar
             $conexion->exec("ALTER SESSION SET NLS_NUMERIC_CHARACTERS = '.,'");
+            $conexion->exec("ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD HH24:MI:SS'");
+            $conexion->exec("ALTER SESSION SET NLS_TIMESTAMP_FORMAT = 'YYYY-MM-DD HH24:MI:SS'");
             
             return $conexion;
         } catch (PDOException $e) {

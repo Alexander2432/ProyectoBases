@@ -4,8 +4,8 @@ require_once(__DIR__ . "/../libs/fpdf/fpdf.php");
 class ComprobanteGenerador {
 
     const RUC_EMISOR = "1792864573001";
-    const RAZON_SOCIAL_EMISOR = "COMPU-ECUADOR S.A.";
-    const NOMBRE_COMERCIAL = "COMPU-ECUADOR";
+    const RAZON_SOCIAL_EMISOR = "SISTEMA DE GESTION DE VENTAS S.A.";
+    const NOMBRE_COMERCIAL = "GESTION DE VENTAS";
     const DIRECCION_MATRIZ = "Av. Amazonas N24-123 y Av. Colon, Quito, Ecuador";
     const OBLIGADO_CONTABILIDAD = "NO";
 

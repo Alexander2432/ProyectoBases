@@ -132,7 +132,7 @@ $todosProductos = $productoModelo->obtenerTodos();
 <?php while ($fila = $ventas->fetch_assoc()) { ?>
 <tr>
 <?php if ($idProducto > 0) { ?>
-    <td data-label="Fecha"><?php echo date("d/m/Y H:i:s", strtotime($fila["fecha"])); ?></td>
+    <td data-label="Fecha"><?php $ts = strtotime($fila["fecha"]); echo ($ts && $ts > 0) ? date("d/m/Y H:i:s", $ts) : htmlspecialchars($fila["fecha"]); ?></td>
     <td data-label="Factura"><strong><?php echo htmlspecialchars($fila["numeroFactura"]); ?></strong></td>
     <td data-label="Cliente">
         <?php 
@@ -151,7 +151,7 @@ $todosProductos = $productoModelo->obtenerTodos();
     <td data-label="Vendedor"><?php echo htmlspecialchars($fila["vendedor"]); ?></td>
 <?php } else { ?>
     <td data-label="Factura"><strong><?php echo htmlspecialchars($fila["numeroFactura"]); ?></strong></td>
-    <td data-label="Fecha"><?php echo date("d/m/Y H:i:s", strtotime($fila["fecha"])); ?></td>
+    <td data-label="Fecha"><?php $ts = strtotime($fila["fecha"]); echo ($ts && $ts > 0) ? date("d/m/Y H:i:s", $ts) : htmlspecialchars($fila["fecha"]); ?></td>
     <td data-label="Cliente">
         <?php 
         if (isset($fila["cliente_nombre"])) {
