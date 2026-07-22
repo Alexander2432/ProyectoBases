@@ -389,16 +389,16 @@ INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (
 INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (2, 'Usuarios', '#', 2, NULL, 1);
 INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (3, 'Listar usuarios', 'view/usuarios/listar.php', 3, 2, 1);
 INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (4, 'Crear usuario', 'view/usuarios/create.php', 4, 2, 1);
-INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (5, 'Clientes', 'view/clientes/listar.php', 5, NULL, 1);
-INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (6, 'Productos', 'view/productos/listar.php', 6, NULL, 1);
-INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (7, 'Ventas', '#', 7, NULL, 1);
-INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (8, 'Listar Ventas', 'view/ventas/listar.php', 8, 7, 1);
-INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (9, 'Registrar Venta', 'view/ventas/registrar.php', 9, 7, 1);
-INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (10, 'Reportes', 'view/reportes/dashboard.php', 10, NULL, 1);
-INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (11, 'Roles', '#', 11, NULL, 1);
-INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (12, 'Listar Roles', 'view/roles/listar.php', 12, 11, 1);
-INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (13, 'Crear Rol', 'view/roles/create.php', 13, 11, 1);
-INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (14, 'Permisos', 'view/permisos/asignar.php', 14, NULL, 1);
+INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (11, 'Roles', '#', 5, NULL, 1);
+INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (12, 'Listar Roles', 'view/roles/listar.php', 6, 11, 1);
+INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (13, 'Crear Rol', 'view/roles/create.php', 7, 11, 1);
+INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (14, 'Permisos', 'view/permisos/asignar.php', 8, NULL, 1);
+INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (5, 'Clientes', 'view/clientes/listar.php', 9, NULL, 1);
+INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (6, 'Productos', 'view/productos/listar.php', 10, NULL, 1);
+INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (7, 'Ventas', '#', 11, NULL, 1);
+INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (8, 'Listar Ventas', 'view/ventas/listar.php', 12, 7, 1);
+INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (9, 'Registrar Venta', 'view/ventas/registrar.php', 13, 7, 1);
+INSERT INTO MENUS (idMenu, nombre, url, ordenMenu, idMenuPadre, activo) VALUES (10, 'Reportes', 'view/reportes/dashboard.php', 14, NULL, 1);
 
 -- Permisos para el Administrador (idRol = 1)
 INSERT INTO PERMISOS (idRol, idMenu) VALUES (1, 1);
