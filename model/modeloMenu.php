@@ -123,7 +123,9 @@ class Menu {
 
         $stmt = $cn->prepare($sql);
         $stmt->execute([$nombre, $url, $ordenMenu, $idMenuPadre]);
-        return $cn->lastInsertId();
+        $stmtId = $cn->query("SELECT MAX(idMenu) AS id FROM menus");
+        $rowId = $stmtId->fetch(PDO::FETCH_ASSOC);
+        return (int)($rowId['ID'] ?? $rowId['id'] ?? $rowId['IDMENU'] ?? $rowId['idMenu']);
     }
 
     public function actualizar($idMenu, $nombre, $url, $ordenMenu, $idMenuPadre) {

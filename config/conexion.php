@@ -23,6 +23,9 @@ private $password = "NuevaClave123";   // La clave con la que ingresaste
             // Habilitamos el lanzamiento de excepciones para errores
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
+            // Forzar formato de números a punto decimal para evitar ORA-01722 en configuraciones regionales en español
+            $conexion->exec("ALTER SESSION SET NLS_NUMERIC_CHARACTERS = '.,'");
+            
             return $conexion;
         } catch (PDOException $e) {
             die("Error de conexión a Oracle: " . $e->getMessage());
@@ -89,7 +92,8 @@ class OracleResult
             'c_cedula' => 'c_cedula',
             'c_correo' => 'c_correo',
             'c_telefono' => 'c_telefono',
-            'c_direccion' => 'c_direccion'
+            'c_direccion' => 'c_direccion',
+            'unidadmedida' => 'unidadMedida'
         ];
         
         foreach ($row as $key => $val) {

@@ -105,7 +105,10 @@ class Rol {
         $cn = $conexion->conectar();
         $res = $cn->query("SELECT COUNT(*) AS total FROM roles");
         $fila = $res->fetch(PDO::FETCH_ASSOC);
-        return $fila ? (int)$fila["TOTAL"] : 0;
+        if ($fila) {
+            $fila = array_change_key_case($fila, CASE_LOWER);
+        }
+        return $fila ? (int)$fila["total"] : 0;
     }
 
     public function eliminar($idRol) {

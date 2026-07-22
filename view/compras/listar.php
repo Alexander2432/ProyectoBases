@@ -70,7 +70,7 @@ $todosProductos = $productoModelo->obtenerTodos();
 </div>
 
 <div class="barraAcciones">
-    <form method="GET" action="view/compras/listar.php" class="filtro">
+    <form method="GET" action="<?php echo urlLimpia('view/compras/listar.php'); ?>" class="filtro">
         <label for="idProducto">Filtrar por Producto:</label>
         <select name="idProducto" id="idProducto" onchange="this.form.submit()">
             <option value="0">Todos los productos</option>

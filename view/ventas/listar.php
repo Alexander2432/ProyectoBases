@@ -77,7 +77,7 @@ $todosProductos = $productoModelo->obtenerTodos();
 </div>
 
 <div class="barraAcciones" style="flex-wrap: wrap; gap: 15px;">
-    <form method="GET" action="view/ventas/listar.php" class="filtro">
+    <form method="GET" action="<?php echo urlLimpia('view/ventas/listar.php'); ?>" class="filtro">
         <label for="idProducto">Filtrar por Producto:</label>
         <select name="idProducto" id="idProducto" onchange="this.form.submit()">
             <option value="0">Todos los productos</option>
@@ -89,14 +89,14 @@ $todosProductos = $productoModelo->obtenerTodos();
         </select>
     </form>
     
-    <form method="GET" action="view/ventas/listar.php" class="filtro" style="margin-left: auto; flex-wrap: wrap; gap: 8px;">
+    <form method="GET" action="<?php echo urlLimpia('view/ventas/listar.php'); ?>" class="filtro" style="margin-left: auto; flex-wrap: wrap; gap: 8px;">
         <label for="fechaInicio">Rango Fechas:</label>
         <input type="date" name="fechaInicio" id="fechaInicio" value="<?php echo htmlspecialchars($fechaInicio); ?>" style="padding: 8px 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: white; border-radius: var(--radius-md);">
         <span>a</span>
         <input type="date" name="fechaFin" id="fechaFin" value="<?php echo htmlspecialchars($fechaFin); ?>" style="padding: 8px 12px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: white; border-radius: var(--radius-md);">
         <button type="submit" class="botonNuevo" style="padding: 8px 16px; font-size: 13px;">Filtrar</button>
         <?php if ($fechaInicio !== "" || $fechaFin !== "") { ?>
-            <a href="view/ventas/listar.php" class="botonNuevo" style="background: rgba(255,0,0,0.2); border: 1px solid rgba(255,0,0,0.3); color: white; text-decoration: none; padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center; height: 35px; box-sizing: border-box;">Limpiar</a>
+            <a href="<?php echo urlLimpia('view/ventas/listar.php'); ?>" class="botonNuevo" style="background: rgba(255,0,0,0.2); border: 1px solid rgba(255,0,0,0.3); color: white; text-decoration: none; padding: 8px 16px; font-size: 13px; display: inline-flex; align-items: center; height: 35px; box-sizing: border-box;">Limpiar</a>
         <?php } ?>
     </form>
 </div>

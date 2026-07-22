@@ -35,7 +35,13 @@ class Venta {
             if (!$stmt->execute([$numeroFactura, $idCliente, $idUsuario, $subtotal, $iva, $total])) {
                 throw new Exception("Error al insertar la cabecera de la venta.");
             }
-            $idVenta = $cn->lastInsertId();
+            $idVenta = null;
+            $stmtId = $cn->prepare("SELECT idVenta FROM ventas WHERE numeroFactura = ?");
+            $stmtId->execute([$numeroFactura]);
+            $rowId = $stmtId->fetch(PDO::FETCH_ASSOC);
+            if ($rowId) {
+                $idVenta = (int)($rowId['IDVENTA'] ?? $rowId['idVenta'] ?? $rowId['idventa']);
+            }
             
             // 2. Insertar detalles y actualizar stock
             $stmtDetalle = $cn->prepare("INSERT INTO detalle_ventas (idVenta, idProducto, cantidad, precio, iva, total) VALUES (?, ?, ?, ?, ?, ?)");

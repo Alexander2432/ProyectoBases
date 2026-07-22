@@ -101,11 +101,11 @@ if (isset($_GET["mensaje"])) {
 ?>
 
 <div class="barraAcciones">
-    <form method="GET" action="view/clientes/listar.php" class="buscador">
+    <form method="GET" action="<?php echo urlLimpia('view/clientes/listar.php'); ?>" class="buscador">
         <input type="text" name="buscar" placeholder="Buscar por cédula, nombre o apellido..." value="<?php echo htmlspecialchars($buscar); ?>">
         <button type="submit" class="botonNuevo" style="background: var(--color-surface); border: 1px solid var(--color-border); color: white;">Buscar</button>
         <?php if ($buscar !== "") { ?>
-            <a href="view/clientes/listar.php" class="botonNuevo" style="background: rgba(255,0,0,0.2); border: 1px solid rgba(255,0,0,0.3); color: white; display: flex; align-items: center; justify-content: center; text-decoration: none;">Limpiar</a>
+            <a href="<?php echo urlLimpia('view/clientes/listar.php'); ?>" class="botonNuevo" style="background: rgba(255,0,0,0.2); border: 1px solid rgba(255,0,0,0.3); color: white; display: flex; align-items: center; justify-content: center; text-decoration: none;">Limpiar</a>
         <?php } ?>
     </form>
 </div>

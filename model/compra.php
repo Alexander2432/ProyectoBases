@@ -15,7 +15,9 @@ class Compra {
             if (!$stmt->execute([$idUsuario, $subtotal, $iva, $total])) {
                 throw new Exception("Error al insertar la cabecera de compra.");
             }
-            $idCompra = $cn->lastInsertId();
+            $stmtId = $cn->query("SELECT MAX(idCompra) AS id FROM compras");
+            $rowId = $stmtId->fetch(PDO::FETCH_ASSOC);
+            $idCompra = (int)($rowId['ID'] ?? $rowId['id'] ?? $rowId['IDCOMPRA'] ?? $rowId['idCompra']);
             
             // 2. Insertar detalles y actualizar stock
             $stmtDetalle = $cn->prepare("INSERT INTO detalle_compras (idCompra, idProducto, cantidad, precio, iva, total) VALUES (?, ?, ?, ?, ?, ?)");

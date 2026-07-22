@@ -105,11 +105,11 @@ if (isset($_GET["mensaje"])) {
 ?>
 
 <div class="barraAcciones">
-    <form method="GET" action="view/productos/listar.php" class="buscador">
+    <form method="GET" action="<?php echo urlLimpia('view/productos/listar.php'); ?>" class="buscador">
         <input type="text" name="buscar" placeholder="Buscar por código, nombre o descripción..." value="<?php echo htmlspecialchars($buscar); ?>">
         <button type="submit" class="botonNuevo" style="background: var(--color-surface); border: 1px solid var(--color-border); color: white;">Buscar</button>
         <?php if ($buscar !== "") { ?>
-            <a href="view/productos/listar.php" class="botonNuevo" style="background: rgba(255,0,0,0.2); border: 1px solid rgba(255,0,0,0.3); color: white; display: flex; align-items: center; justify-content: center; text-decoration: none;">Limpiar</a>
+            <a href="<?php echo urlLimpia('view/productos/listar.php'); ?>" class="botonNuevo" style="background: rgba(255,0,0,0.2); border: 1px solid rgba(255,0,0,0.3); color: white; display: flex; align-items: center; justify-content: center; text-decoration: none;">Limpiar</a>
         <?php } ?>
     </form>
 </div>
@@ -135,7 +135,7 @@ if (isset($_GET["mensaje"])) {
 <td data-label="Código"><strong><?php echo htmlspecialchars($fila["codigo"]); ?></strong></td>
 <td data-label="Nombre"><?php echo htmlspecialchars($fila["nombre"]); ?></td>
 <td data-label="Descripción"><?php echo htmlspecialchars($fila["descripcion"] ?? '-'); ?></td>
-<td data-label="Medida"><span class="insignia rol"><?php echo htmlspecialchars($fila["unidadMedida"]); ?></span></td>
+<td data-label="Medida"><span class="insignia rol"><?php echo htmlspecialchars($fila["unidadMedida"] ?? $fila["unidadmedida"] ?? '-'); ?></span></td>
 <td data-label="Precio">$<?php echo number_format($fila["precio"], 4); ?></td>
 <td data-label="Stock">
     <strong style="color: <?php echo $fila["stock"] <= 5 ? '#f43f5e' : '#10b981'; ?>">
