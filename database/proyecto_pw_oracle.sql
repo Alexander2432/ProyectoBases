@@ -109,10 +109,10 @@ CREATE TABLE PRODUCTOS (
     codigo VARCHAR2(50) NOT NULL UNIQUE,
     nombre VARCHAR2(100) NOT NULL,
     descripcion VARCHAR2(250),
-    precio NUMBER(10,2) NOT NULL,
+    precio NUMBER(10,2) NOT NULL CHECK (precio >= 0),
     unidadMedida VARCHAR2(20),
     idCategoriaIva NUMBER(11) NOT NULL,
-    stock NUMBER(10,2) DEFAULT 0.00 NOT NULL,
+    stock NUMBER(10,2) DEFAULT 0.00 NOT NULL CHECK (stock >= 0),
     CONSTRAINT fk_productos_cativa FOREIGN KEY (idCategoriaIva) REFERENCES CATEGORIAS_IVA(idCategoriaIva)
 );
 
